@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0CA99A"
+    android:gravity="center"
+    android:padding="40dp"
+    tools:context=".registrationActivity">
+
+
+
+    <TextView
+        android:id="@+id/regTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Register"
+        android:textColor="#FF5722"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/regUser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:hint="User Number "
+        android:padding="15dp"
+        android:inputType="number"
+        />
+
+
+    <EditText
+        android:id="@+id/regPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:hint="PIN "
+        android:padding="15dp"
+        android:inputType="numberPassword"
+        />
+    <EditText
+        android:id="@+id/regPassConfirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:hint="Confirm PIN "
+        android:padding="15dp"
+        android:inputType="numberPassword"
+        />
+
+
+    <Button
+        android:id="@+id/nextRegBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next Step"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        />
+
+
+
+</LinearLayout>

@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.RecyclerView" parent="Theme.Material3.DayNight">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">#F44336</item>
+         <item name="colorPrimaryDark">#E91E63</item>
+         <item name="colorAccent">#FF5722</item>
+    </style>
+
+
+    <style name="Base.Theme.RecyclerViewNoActionBar" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">#F44336</item>
+        <item name="colorPrimaryDark">#E91E63</item>
+        <item name="colorAccent">#FF5722</item>
+    </style>
+
+    <style name="Theme.RecyclerView" parent="Base.Theme.RecyclerView" />
+</resources>
