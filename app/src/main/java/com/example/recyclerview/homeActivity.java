@@ -23,7 +23,7 @@ public class homeActivity extends AppCompatActivity {
 
     TextView userId;
     Toolbar toolbar;
-    Button listViewBtn, logoutBtn;
+    Button listViewBtn;
     String user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,6 @@ public class homeActivity extends AppCompatActivity {
         // id define
         userId = findViewById(R.id.userId);
         listViewBtn = findViewById(R.id.listViewBtn);
-        logoutBtn = findViewById(R.id.logoutBtn);
         toolbar = findViewById(R.id.toolbar);
 
 
@@ -58,23 +57,15 @@ public class homeActivity extends AppCompatActivity {
         user = preferences.getString("user","");
         userId.setText("User Id: " + user);
 
-        // list view show
-//        listViewBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent listView = new Intent(homeActivity.this, MainActivity.class);
-//                startActivity(listView);
-//            }
-//        });
+//         list view show
+        listViewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent listView = new Intent(homeActivity.this, MainActivity.class);
+                startActivity(listView);
+            }
+        });
 
-
-        // logout  user
-//        logoutBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                logout();
-//            }
-//        });
 
 
 
@@ -112,16 +103,5 @@ public class homeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-//    private void logout() {
-//        SharedPreferences preferences = getSharedPreferences("SharedPreference",MODE_PRIVATE);
-//        SharedPreferences.Editor editor = preferences.edit();
-//        editor.clear();
-//        editor.apply();
-//        Toast.makeText(this, "Logout Successfully", Toast.LENGTH_SHORT).show();
-//
-//        Intent login = new Intent(homeActivity.this, loginActivity.class);
-//
-//        startActivity(login);
-//        finish();
-//    }
+
 }
