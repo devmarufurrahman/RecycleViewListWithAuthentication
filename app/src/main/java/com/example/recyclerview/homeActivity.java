@@ -57,6 +57,7 @@ public class homeActivity extends AppCompatActivity {
         user = preferences.getString("user","");
         userId.setText("User Id: " + user);
 
+
 //         list view show
         listViewBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,8 +80,6 @@ public class homeActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
     // menu selection
-
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
@@ -98,6 +97,8 @@ public class homeActivity extends AppCompatActivity {
 
             startActivity(login);
             finish();
+        } else {
+            super.onBackPressed();
         }
 
         return super.onOptionsItemSelected(item);
