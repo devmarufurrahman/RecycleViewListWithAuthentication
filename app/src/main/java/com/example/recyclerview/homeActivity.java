@@ -1,5 +1,6 @@
 package com.example.recyclerview;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
@@ -35,7 +37,7 @@ public class homeActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
 
 
-        //toolbar show'
+        //toolbar show
         //step 1
         setSupportActionBar(toolbar);
         //step 2
@@ -47,10 +49,7 @@ public class homeActivity extends AppCompatActivity {
         toolbar.setSubtitle("recycler view");
 
         //step 4
-        @Override
-                public boolean onCreateOptionsMenu(Menu menu){
-            return super.onCreateOptionsMenu(menu); 
-        }
+
 
 
 
@@ -60,38 +59,69 @@ public class homeActivity extends AppCompatActivity {
         userId.setText("User Id: " + user);
 
         // list view show
-        listViewBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent listView = new Intent(homeActivity.this, MainActivity.class);
-                startActivity(listView);
-            }
-        });
+//        listViewBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent listView = new Intent(homeActivity.this, MainActivity.class);
+//                startActivity(listView);
+//            }
+//        });
 
 
         // logout  user
-        logoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                logout();
-            }
-        });
+//        logoutBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                logout();
+//            }
+//        });
 
-        Log.d("jkfldk","Login intent");
+
 
     }
 
 
-    private void logout() {
-        SharedPreferences preferences = getSharedPreferences("SharedPreference",MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.clear();
-        editor.apply();
-        Toast.makeText(this, "Logout Successfully", Toast.LENGTH_SHORT).show();
-
-        Intent login = new Intent(homeActivity.this, loginActivity.class);
-
-        startActivity(login);
-        finish();
+    // menu bar show here
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        new MenuInflater(this).inflate(R.menu.option_menu,menu);
+        return super.onCreateOptionsMenu(menu);
     }
+    // menu selection
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.listViewMenu){
+            Intent listView = new Intent(homeActivity.this, MainActivity.class);
+            startActivity(listView);
+        } else if (itemId == R.id.logMenu) {
+            SharedPreferences preferences = getSharedPreferences("SharedPreference",MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.clear();
+            editor.apply();
+            Toast.makeText(this, "Logout Successfully", Toast.LENGTH_SHORT).show();
+
+            Intent login = new Intent(homeActivity.this, loginActivity.class);
+
+            startActivity(login);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+//    private void logout() {
+//        SharedPreferences preferences = getSharedPreferences("SharedPreference",MODE_PRIVATE);
+//        SharedPreferences.Editor editor = preferences.edit();
+//        editor.clear();
+//        editor.apply();
+//        Toast.makeText(this, "Logout Successfully", Toast.LENGTH_SHORT).show();
+//
+//        Intent login = new Intent(homeActivity.this, loginActivity.class);
+//
+//        startActivity(login);
+//        finish();
+//    }
 }
