@@ -128,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         arrContact.add(new contactModal(R.drawable.contact, "Rifat", "0175926695"));
 
 
+
          adapter = new RecyclerContactAdapter(MainActivity.this, arrContact);
         recyclerContact.setAdapter(adapter);
 
